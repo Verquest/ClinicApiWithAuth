@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Mateu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Mateu\\.nuget\\packages"
+    ]
+  }
+}
