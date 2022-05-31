@@ -85,7 +85,6 @@ namespace cw_8_22c
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "cw_8_22c v1"));
             }
-            app.UseDeveloperExceptionPage();
             app.UseErrorLoggingMiddleware();
 
             app.UseHttpsRedirection();

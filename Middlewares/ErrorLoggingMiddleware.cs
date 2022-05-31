@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+
 using System.IO;
-using System.Net;
-using System.Security.Authentication;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace cw_8_22c.Middlewares
 {
@@ -27,6 +21,7 @@ namespace cw_8_22c.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
+            //await File.AppendAllTextAsync("logs.txt", "test");
             try
             {
                 await _next(context);
@@ -35,7 +30,7 @@ namespace cw_8_22c.Middlewares
             {
                 context.Response.StatusCode = 500;
                 await context.Response.WriteAsync("Unexpected error.");
-                await File.WriteAllTextAsync("logs.txt", e.Message.ToString());
+                await File.AppendAllTextAsync("logs.txt", e.InnerException.ToString() + '\n');
             }
         }
     }

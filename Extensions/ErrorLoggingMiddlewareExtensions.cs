@@ -8,10 +8,7 @@ namespace cw_8_22c.Extensions
 
         public static IApplicationBuilder UseErrorLoggingMiddleware(this IApplicationBuilder builder)
         {
-            return builder.UseExceptionHandler(new ExceptionHandlerOptions
-            {
-                ExceptionHandler = new ErrorLoggingMiddleware().Invoke
-            });
+            return builder.UseMiddleware<ErrorLoggingMiddleware>();
         }
     }
 }
